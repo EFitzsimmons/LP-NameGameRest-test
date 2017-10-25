@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+</head>
+
+
+<body>
+	<!-- This is where Teams will be dynamically updated -->
+	<div id="teamsBlock"></div>
+	<!--  Start TODO TODO make dynamic? other page? template? -->
+	<div th:fragment="teamsList" id="results-block">
+        <table>
+            <tr>
+            	<th th:text="${game.team1.name}">Name</th>
+           	</tr>
+            <tr th:each="tp1 : ${game.team1.players}">
+            	<td th:text="${tp1.name}"/>
+            </tr>
+        </table>
+        
+        <table>
+            <tr>
+            	<th th:text="${game.team2.name}">Name</th>
+           	</tr>
+            <tr th:each="tp2 : ${game.team2.players}">
+            	<td th:text="${tp2.name}"/>
+            </tr>
+        </table>
+    </div>
+    <!-- END TODO TODO -->
+</body>	
+	
+</html>

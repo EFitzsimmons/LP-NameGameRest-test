@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+    <html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+
+<body>
+    <!-- <p>Get your greeting <a href="/player">here</a></p>
+     -->
+    <p><form>Create New Game</form></p>
+    
+    
+    <form action="/player" th:action="@{/player}" th:object="${player}" method="post">
+    	<p>Your Name <input type="text" th:field="*{name}" /></p>
+    	<p>Game Id if you are joining a game <input type="text" name="gameId" value="gameId" /></p>
+    	<p>
+    	<br/>
+        <button type="submit" name="action" value="createGame" ng-click="createGame()" > Create a new game! </button>
+        <br/><br/><br/><br/>
+        <button type="submit" name="action" value="joinGame" > Join an Existing game! </button>
+        <!-- <input type="reset" value="Reset" />
+         -->
+         </p>
+    </form>
+</body>
+
+</html>

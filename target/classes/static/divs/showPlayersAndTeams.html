@@ -1,0 +1,29 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <!-- All available players -->
+    <div class="col-sm-4">
+	    Players in the game:
+		<div ng-repeat="player in game.playersInGame">
+		{{$index + 1}}: {{ player.name }}
+		</div>
+		<div ng-show="playerName">New Player: {{ playerName }} </div>
+    </div>
+    
+    <!-- Team 1 players -->
+    <div class="col-sm-4" style="background-color:lavenderblush;">
+    	Team 1:
+    	<div ng-repeat="team1Player in game.team1.players">
+		{{$index + 1}}: {{ team1Player.name }}
+		</div>
+    </div>
+    
+    <!-- Team 2 players -->
+    <div class="col-sm-4" style="background-color:lavender;">
+    	Team 2:
+    	<div ng-repeat="team2Player in game.team2.players">
+		{{$index + 1}}: {{ team2Player.name }}
+		</div>
+    </div>
+  </div>
+</div>

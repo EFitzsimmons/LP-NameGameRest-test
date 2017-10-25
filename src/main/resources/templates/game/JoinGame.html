@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<h1 th:text="'Welcome: ' + ${player.name}"></h1>
+	
+
+    <p th:text="'You have joined the game with Id: ' + ${game.id} +
+    	' and owner: ' + ${game.owner.name}" />
+
+	<!-- Players in the game -->
+	<table>
+		<tr> <td>Current players in the game: </td></tr>
+	    <tr data-th-each="p : ${game.getPlayersInGame()}">
+	        <td data-th-text="'Name: ' + ${p.name}">...</td>
+	        <td data-th-text="'With Id: ' + ${p.id}">...</td>
+	    </tr>
+	    <!-- <tr> <td>Current names in the game: </td></tr>
+	    <tr data-th-each="gn : ${game.namesInTheGame}">
+	        <td data-th-text="'Name: ' + ${gn.name}">...</td>
+	    </tr>
+	     -->
+	</table>
+	
+	
+	
+	
+	
+	<!-- This is where Teams will be dynamically updated -->
+	<div id="teamsBlock"></div>
+	<!--  Start TODO TODO make dynamic? other page? template? -->
+	<div th:fragment="teamsList" id="results-block">
+        <table>
+            <tr>
+            	<th th:text="${game.team1.name}">Name</th>
+           	</tr>
+            <tr th:each="tp1 : ${game.team1.players}">
+            	<td th:text="${tp1.name}"/>
+            </tr>
+        </table>
+        
+        <table>
+            <tr>
+            	<th th:text="${game.team2.name}">Name</th>
+           	</tr>
+            <tr th:each="tp2 : ${game.team2.players}">
+            	<td th:text="${tp2.name}"/>
+            </tr>
+        </table>
+    </div>
+    <!-- END TODO TODO -->
+	
+	
+	
+	
+	
+	<br/><br/>
+    <a href="/">Go Back</a>    
+</body>
+</html>
